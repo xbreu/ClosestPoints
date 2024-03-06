@@ -9,7 +9,7 @@ struct point {
 };
 
 struct point_array {
-    struct point* points;
+    struct point *points;
     int size;
 };
 
@@ -17,9 +17,9 @@ struct point_array {
 double distance(struct point *, struct point *);
 
 /** Read file and creates the point array */
-struct point_array *read_file(char* file_path);
+struct point_array *read_file(char *file_path);
 
 /** Frees the point array and the points inside it */
-void free_point_array(struct point_array*);
+void free_point_array(struct point_array *);
 
 #endif //MPI_POINT_H
