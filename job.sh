@@ -14,7 +14,7 @@ hostname
 # module load openmpi/gcc
 
 # compile the C file
-mpicc main.c -o closest_points
+mpicc main.c point.c -o closest_points -Wall -lm
 
 # run compiled main.c file
-mpirun -n 10 --use-hwthread-cpus ./closest_points
+mpirun -n 1 --use-hwthread-cpus ./closest_points

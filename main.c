@@ -1,29 +1,24 @@
 #include <mpi.h>
 #include <stdio.h>
+#include "point.h"
 
-struct point {
-    int x;
-    int y;
-};
+#define NO_TAG (0)
 
 int main(int argc, char **argv) {
-    int world_size, world_rank;
+    // int world_size, world_rank;
+    struct point_array *a;
+    a = read_file("input.dat");
 
     // Initialize MPI environment
     MPI_Init(&argc, &argv);
 
-    // number of processes
-    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+    // Send and receive the second point from the input
+    struct point b;
+    MPI_Send(&a->points[1], POINT_SIZE, MPI_BYTE, 0, NO_TAG, MPI_COMM_WORLD);
+    MPI_Recv(&b, POINT_SIZE, MPI_BYTE, 0, NO_TAG, MPI_COMM_WORLD, 0);
+    printf("Received point: (%lf, %lf)\n", b.x, b.y);
 
-    // the rank of the current process
-    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
-
-    char processor_name[MPI_MAX_PROCESSOR_NAME]; // gets the name of the processor
-    int name_len;
-    MPI_Get_processor_name(processor_name, &name_len);
-
-    printf("Hello world from processor %s, rank %d out of %d processors\n",
-           processor_name, world_rank, world_size);
-
-    MPI_Finalize(); // finish MPI environment
+    // Finish MPI environment and free the memory used
+    MPI_Finalize();
+    free_point_array(a);
 }
