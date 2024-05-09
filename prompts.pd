@@ -1,0 +1,5 @@
+Write a program in plain C to randomly generate the points in 2D (or eventually in 3D) space. The file must contain also information about the number of points, the domain limits and the number of dimensions. Coordinates must be doubles.
+
+..... [FOR CORRECTION] .....
+
+Based on my current functions, write me the function that solves the Closest Pair Problem in brute force.

@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "MPI: build with mpicc",
+            "command": "/usr/bin/mpicc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-I/usr/lib/x86_64-linux-gnu/openmpi/include",
+                "${file}",
+                "-o",
+                "${fileDirname}/bin/${fileBasenameNoExtension}",
+                "-lm"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "isDefault": true,
+                "kind": "build",
+            },
+            "detail": "compiler: /usr/bin/mpicc"
+        }
+    ]
+}
