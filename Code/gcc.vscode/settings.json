@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "closestpointutilities.h": "c",
+        "stdlib.h": "c",
+        "time.h": "c",
+        "*.tcc": "c",
+        "string": "c",
+        "string_view": "c",
+        "algorithm": "c",
+        "random": "c",
+        "istream": "c",
+        "limits": "c",
+        "numeric": "c",
+        "array": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "pointsortutilities.h": "c",
+        "string.h": "c"
+    }
+}
